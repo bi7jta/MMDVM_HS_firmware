@@ -1,29 +1,16 @@
-Linux or macOS  version：v1.4.6
+Detail view my BLOG [http://mmdvm.bi7jta.org/search/label/Firmware_upgrade](http://mmdvm.bi7jta.org/search/label/Firmware_upgrade)  
+  
+Upgrade/flash MMDVM repeater V3F446  
+  
+Open your ssh GUI http://pi-star/admin/expert/ssh_access.php  
+User: pi-star  
+Pass: raspberry  
 
-Download the script (*.sh) that matches with your nano hotspot/duplex hotspot board:
+Login and Ctrl + C then Contl +V ,run the follow script  
 
-install_fw_duplex.sh :Adapted to the duplex board
-
-install_fw_nanohs_for_rpi.sh :Only adapted to nano_hotSPOT for raspberry pi
-
-cd /tmp
-
-curl -OL https://raw.github.com/VR2VYE/MMDVM_HS_firmware/master/install_fw_nanohs_for_rpi.sh
-
-make the script executable:
-
-chmod +x install_fw_nanohs_for_rpi.sh
-
-If you are using Pi-Star, stop services:
-
-sudo pistar-watchdog.service stop
-
-sudo systemctl stop mmdvmhost.timer
-
-sudo systemctl stop mmdvmhost.service
-
-stop your MMDVMHost process and run (you will need the root password):
-
-./install_fw_nanohs_for_rpi.sh
-
-and wait to complete the upgrading process.
+``` 
+rpi-rw;  
+curl -OL https://www.bi7jta.org/files/MMDVM_Firmware/repeater_HAT/MMDVM_REP_12.0MHz_v1.4.7_build_20191002.hex;  
+sudo killall MMDVMHost >/dev/null 2>&1 ;  
+sudo stm32flash -v -w MMDVM_REP_12.0MHz_v1.4.7_build_20191002.hex  -R  -i 20,-21,21:-20,21 /dev/ttyAMA0;  
+``` 
