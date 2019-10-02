@@ -14,7 +14,7 @@ rpi-rw;
 curl -OL https://raw.githubusercontent.com/bi7jta/MMDVM_HS_firmware_VR2VYE/master/RepeaterV3F4/stm32flashV5;  
 curl -OL https://raw.githubusercontent.com/bi7jta/MMDVM_HS_firmware_VR2VYE/master/RepeaterV3F4/mmdvm_f4.hex;  
 sudo killall MMDVMHost >/dev/null 2>&1 ;  
-sudo stm32flash -v -w mmdvm_f4.hex  -R  -i 20,-21,21:-20,21 /dev/ttyAMA0;  
+sudo ./stm32flashV5 -v -w mmdvm_f4.hex  -R  -i 20,-21,21:-20,21 /dev/ttyAMA0;  
 #Please Power off then Power on(Not the reboot).  
 ``` 
 
