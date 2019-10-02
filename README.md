@@ -1,4 +1,5 @@
-Detail view my BLOG [http://mmdvm.bi7jta.org/search/label/Firmware_upgrade](http://mmdvm.bi7jta.org/search/label/Firmware_upgrade)  
+Detail view my BLOG 
+[http://mmdvm.bi7jta.org/search/label/Firmware_upgrade](http://mmdvm.bi7jta.org/search/label/Firmware_upgrade)  
   
 Upgrade/flash MMDVM repeater V3F446  
   
@@ -10,7 +11,10 @@ Login and Ctrl + C then Contl +V ,run the follow script
 
 ``` 
 rpi-rw;  
-curl -OL https://www.bi7jta.org/files/MMDVM_Firmware/repeater_HAT/MMDVM_REP_12.0MHz_v1.4.7_build_20191002.hex;  
+curl -OL https://raw.githubusercontent.com/bi7jta/MMDVM_HS_firmware_VR2VYE/master/RepeaterV3F4/stm32flashV5;  
+curl -OL https://raw.githubusercontent.com/bi7jta/MMDVM_HS_firmware_VR2VYE/master/RepeaterV3F4/mmdvm_f4.hex;  
 sudo killall MMDVMHost >/dev/null 2>&1 ;  
-sudo stm32flash -v -w MMDVM_REP_12.0MHz_v1.4.7_build_20191002.hex  -R  -i 20,-21,21:-20,21 /dev/ttyAMA0;  
+sudo stm32flash -v -w mmdvm_f4.hex  -R  -i 20,-21,21:-20,21 /dev/ttyAMA0;  
+#Please Power off then Power on(Not the reboot).  
 ``` 
+
